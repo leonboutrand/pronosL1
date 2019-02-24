@@ -1,0 +1,47 @@
+<h2>Le général</h2>
+
+<table>
+  <thead>
+    <tr>
+      <td colspan="3">Classement</td>
+      <td colspan="2">Matchs</td>
+      <td>10</td>
+      <td>7</td>
+      <td>6</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Class.</td>
+      <td>30</td>
+      <td>12</td>
+      <td>6</td>
+      <td>2</td>
+      <td colspan="2">Total</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each_with_index do |user, i| %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= user.email %></td>
+        <td>+1</td>
+        <td>580</td>
+        <td>-12</td>
+        <td>10</td>
+        <td>7</td>
+        <td>6</td>
+        <td>5</td>
+        <td>1</td>
+        <td>0</td>
+        <td>500</td>
+        <td>5</td>
+        <td>5</td>
+        <td>5</td>
+        <td>5</td>
+        <td>1080</td>
+        <td>~</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
