@@ -1,0 +1,22 @@
+<h1>La Gazzetta dello Porco</h1>
+<h3>Toute l'actu footix des gros porcs</h3>
+
+<%= link_to 'Ecrire un article', new_article_path, class: 'btn btn-primary' %>
+
+<% @articles.each do |article| %>
+  <%= link_to article_path(article) do %>
+    <div class="article-card">
+      <h4><%= article.title %></h4>
+      <p> <%= article.photo %> </p>
+      <p><%= article.content %></p>
+      <% if article.user == current_user %>
+        <%= link_to edit_article_path(article) do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to article_path(article), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

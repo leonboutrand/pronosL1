@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "✍️Gazzetta dello sPorco", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "📜Gazzetta dello Porco", articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "📈Stats inutiles", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "⚽Pose tes scores et tes couilles", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "⚡Live", "#", class: "navbar-wagon-item navbar-wagon-link" %>
@@ -49,7 +49,7 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">✍️Gazzetta</a></li>
+        <li><a href="#">📜Gazzetta</a></li>
         <li><a href="#">📈Bullshit</a></li>
         <li><a href="#">⚽Scores+couilles</a></li>
         <li><a href="#">⚡Live</a></li>

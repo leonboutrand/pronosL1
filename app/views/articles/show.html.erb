@@ -1,0 +1,4 @@
+<h1><%= @article.title %></h1>
+<p><em>Rédigé par: <%= @article.user.email %></em></p>
+<%= image_tag @article.photo, alt: "alttext" %>
+<p><%= @article.content %></p>
