@@ -13,18 +13,24 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = Article.new(article_params)
-    article.user = current_user
-    article.save
-    redirect_to articles_path
+    @article = Article.new(article_params)
+    @article.user = current_user
+    if @article.save
+      redirect_to articles_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @article.update(article_params)
-    redirect_to article_path(@article)
+    if @article.update(article_params)
+      redirect_to article_path(@article)
+    else
+      render :edit
+    end
   end
 
   def destroy

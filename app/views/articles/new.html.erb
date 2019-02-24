@@ -1,10 +1,5 @@
 <h1>À toi l'artiste</h1>
 
-<%= simple_form_for @article do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :photo %>
-  <%= f.button :submit %>
-<% end %>
+<%= render 'form' %>
+
+<%= link_to 'En fait nan', articles_path  %>

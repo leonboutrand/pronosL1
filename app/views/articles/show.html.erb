@@ -1,4 +1,14 @@
-<h1><%= @article.title %></h1>
+<h1><%= @article.title %>
+  <% if @article.user == current_user %>
+    <%= link_to edit_article_path(@article) do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to article_path(@article), method: :delete, data: { confirm: "Es-tu sûr de ton coup? :'(" } do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  <% end %>
+</h1>
+
 <p><em>Rédigé par: <%= @article.user.email %></em></p>
 <%= image_tag @article.photo, alt: "alttext" %>
 <p><%= @article.content %></p>
