@@ -1,0 +1,12 @@
+<table>
+  <tbody>
+    <% @scores.each do |score| %>
+      <tr>
+        <td><%= score[:home] %></td>
+        <td><%= score[:score_home] %></td>
+        <td><%= score[:score_away] %></td>
+        <td><%= score[:away] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
