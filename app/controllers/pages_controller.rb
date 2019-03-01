@@ -6,11 +6,11 @@ class PagesController < ApplicationController
   end
 
   def live
-    @scores = scraper(26, true)
+    @scores = scraper(25, true)
   end
 
   def pronos
-    @scores = scraper(26, false)
+    @scores = scraper(27, false)
   end
 
   private
