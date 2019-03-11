@@ -15,8 +15,8 @@ class PagesController < ApplicationController
 
   private
 
-  def scraper(journee, live)
-    url = "https://www.lfp.fr/ligue1/calendrier_resultat?sai=102&jour=#{journee}"
+  def scraper(matchday, live)
+    url = "https://www.lfp.fr/ligue1/calendrier_resultat?sai=102&jour=#{matchday}"
     html_content = open(url).read
     doc = Nokogiri::HTML(html_content)
     scores = scrap_scores(doc) if live

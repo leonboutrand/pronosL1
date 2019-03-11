@@ -8,6 +8,8 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.float :odds_home
       t.float :odds_away
       t.datetime :start_time
+      t.status :string
+      t.matchday :integer
 
       t.timestamps
     end

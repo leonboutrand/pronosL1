@@ -1,0 +1,5 @@
+<ul>
+  <% comments.each do |comment| %>
+    <li id="comment-<%= comment.id %>"><strong><%= comment.user.pseudo %></strong>: <%= comment.content %></li>
+  <% end %>
+</ul>

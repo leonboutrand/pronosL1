@@ -1,0 +1,9 @@
+function updateCommentBox() {
+  const commentsList = document.querySelector('#comments-list');
+  if (commentsList) {
+    commentsList.innerHTML = "<%= j render 'articles/comments_list', comments: @comment.article.comments %>"
+    document.querySelector('#comment-form').innerHTML = "<%= j render 'articles/comment_form', article: @comment.article, comment: Comment.new %>";
+  }
+}
+
+updateCommentBox();

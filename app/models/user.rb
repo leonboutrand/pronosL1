@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :articles, dependent: :destroy
 
-  validates :pseudo, presence: true, uniqueness: true
+  # validates :pseudo, presence: true, uniqueness: true
 end

@@ -3,7 +3,9 @@ class Game < ApplicationRecord
   belongs_to :team_two, class_name: "Team", foreign_key: "team_two_id", optional: true
   has_many :bets, dependent: :destroy
 
-  def betable?
+  validates :status, inclusion: { in: %w[coming live finished] }
+
+  def bettable?
     start_time < DateTime.now
   end
 end

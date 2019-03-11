@@ -7,7 +7,7 @@
   <%= link_to article_path(article) do %>
     <div class="article-card">
       <h4><%= article.title %></h4>
-      <p> <%= article.photo %> </p>
+      <p> <%= article.image %> </p>
       <p><%= article.content %></p>
       <% if article.user == current_user %>
         <%= link_to edit_article_path(article) do %>

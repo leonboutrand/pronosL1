@@ -1,4 +1,5 @@
-<h1><%= @article.title %>
+<h1>
+  <%= @article.title %>
   <% if @article.user == current_user %>
     <%= link_to edit_article_path(@article) do %>
       <i class="fas fa-pencil-alt"></i>
@@ -9,6 +10,20 @@
   <% end %>
 </h1>
 
-<p><em>Rédigé par: <%= @article.user.email %></em></p>
-<%= image_tag @article.photo, alt: "alttext" %>
-<p><%= @article.content %></p>
+<div id="article-container" class="row">
+  <div id="article-content" class="col-xs-12 col-md-8">
+    <p><em>Rédigé par: <%= @article.user.pseudo %></em></p>
+    <%= image_tag @article.image, alt: "alttext" %>
+    <p><%= @article.content %></p>
+  </div>
+
+  <div id="comments-box" class="col-xs-12 col-md-4">
+    <div id="comments-list">
+      <%= render 'comments_list', comments: @article.comments %>
+    </div>
+
+    <div id="comment-form">
+      <%= render 'comment_form', article: @article, comment: Comment.new %>
+    </div>
+  </div>
+</div>
