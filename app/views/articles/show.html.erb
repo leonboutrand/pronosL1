@@ -12,13 +12,13 @@
 
 <div id="article-container" class="row">
   <div id="article-content" class="col-xs-12 col-md-8">
-    <p><em>Rédigé par: <%= @article.user.pseudo %></em></p>
+    <p><em>Rédigé par <%= @article.user.pseudo %></em></p>
     <%= image_tag @article.image, alt: "alttext" %>
-    <p><%= @article.content %></p>
+    <div style="white-space: pre-line"><%= @article.content %></div>
   </div>
 
   <div id="comments-box" class="col-xs-12 col-md-4">
-    <div id="comments-list">
+    <div id="comments-list" style="overflow:scroll; height:200px;">
       <%= render 'comments_list', comments: @article.comments %>
     </div>
 
