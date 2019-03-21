@@ -1,12 +1,8 @@
-<table>
-  <tbody>
-    <% @scores.each do |score| %>
-      <tr>
-        <td><%= score[:home] %></td>
-        <td><%= score[:score_home] %></td>
-        <td><%= score[:score_away] %></td>
-        <td><%= score[:away] %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= form_tag('/live', remote: true) do %>
+  <%= label_tag(:matchday, 'Journée :') %>
+  <%= select_tag(:matchday, options_for_select((1..36).to_a, Game.current_matchday), onchange: 'Rails.fire(this.form, "submit")') %>
+<% end %>
+
+<div id="game-grid">
+  <%= render 'shared/games_live', scores: @scores %>
+</div>

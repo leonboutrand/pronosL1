@@ -53,9 +53,11 @@ ActiveRecord::Schema.define(version: 2019_03_01_192258) do
     t.bigint "team_away_id"
     t.integer "score_home"
     t.integer "score_away"
+    t.integer "matchday"
     t.float "odds_home"
     t.float "odds_away"
     t.datetime "start_time"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_away_id"], name: "index_games_on_team_away_id"

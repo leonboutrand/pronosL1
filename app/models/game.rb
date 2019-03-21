@@ -8,4 +8,8 @@ class Game < ApplicationRecord
   def bettable?
     start_time < DateTime.now
   end
+
+  def self.current_matchday
+    25
+  end
 end

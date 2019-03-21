@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'live', to: 'pages#live'
+  post 'live', to: 'pages#matchday_update'
   get 'pronos', to: 'pages#pronos'
   get 'stats', to: 'pages#stats'
 
