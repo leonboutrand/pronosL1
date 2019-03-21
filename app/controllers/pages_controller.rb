@@ -9,13 +9,18 @@ class PagesController < ApplicationController
     @scores = scraper(Game.current_matchday, true)
   end
 
-  def matchday_update
+  def live_update
     @scores = scraper(params[:matchday].to_i, true)
-    render :update_matchday
+    render :live_update
   end
 
   def pronos
-    @scores = scraper(27, false)
+    @scores = scraper(Game.current_matchday + 1, false)
+  end
+
+  def pronos_update
+    @scores = scraper(params[:matchday].to_i, false)
+    render :pronos_update
   end
 
   private

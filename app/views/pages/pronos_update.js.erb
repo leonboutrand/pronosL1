@@ -1,0 +1,8 @@
+function updateBets() {
+  const betsGrid = document.querySelector('#bets-grid');
+  if (betsGrid) {
+    betsGrid.innerHTML = "<%= j render 'shared/games_bets', scores: @scores %>"
+  }
+}
+
+updateBets();

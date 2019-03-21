@@ -1,3 +1,5 @@
+<h1>Le live do Brasil</h1>
+
 <%= form_tag('/live', remote: true) do %>
   <%= label_tag(:matchday, 'Journée :') %>
   <%= select_tag(:matchday, options_for_select((1..36).to_a, Game.current_matchday), onchange: 'Rails.fire(this.form, "submit")') %>

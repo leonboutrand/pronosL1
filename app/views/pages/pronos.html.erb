@@ -1,9 +1,10 @@
 <h1>Pose tes pronos</h1>
 
-<% @scores.each do |score| %>
-  <%= score[:home] %>
-  <input type="number">
-  <input type="number">
-  <%= score[:away] %>
-  <br>
+<%= form_tag('/pronos', remote: true) do %>
+  <%= label_tag(:matchday, 'Journée :') %>
+  <%= select_tag(:matchday, options_for_select((1..36).to_a, Game.current_matchday + 1), onchange: 'Rails.fire(this.form, "submit")') %>
 <% end %>
+
+<div id="bets-grid">
+  <%= render 'shared/games_bets', scores: @scores %>
+</div>
