@@ -5,6 +5,7 @@
     <tr>
       <td colspan="3">Club</td>
       <td>Pts</td>
+      <td>J.</td>
       <td>+</td>
       <td>-</td>
       <td>Dif.</td>
@@ -16,9 +17,10 @@
     <% teams.each_with_index do |team, i| %>
       <tr>
         <td><%= i + 1 %></td>
-        <td>Logo</td>
+        <td> </td>
         <td><%= team.name %></td>
         <td><%= team.points %></td>
+        <td><%= team.played_games %></td>
         <td><%= team.scored_goals %></td>
         <td><%= team.conceded_goals %></td>
         <td><%= team.difference_goals %></td>
