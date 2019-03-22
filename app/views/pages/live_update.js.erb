@@ -1,7 +1,7 @@
 function updateGames() {
   const gameGrid = document.querySelector('#game-grid');
   if (gameGrid) {
-    gameGrid.innerHTML = "<%= j render 'shared/games_live', scores: @scores %>"
+    gameGrid.innerHTML = "<%= j render 'shared/games_live', games: @games %>"
   }
 }
 

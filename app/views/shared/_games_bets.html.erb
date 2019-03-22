@@ -1,7 +1,9 @@
-<% scores.each do |score| %>
-  <%= score[:home] %>
+<% games.each do |game| %>
+  <%= game.team_home.name %>
+  <%= game.score_home %>
   <input type="number">
   <input type="number">
-  <%= score[:away] %>
+  <%= game.score_away %>
+  <%= game.team_away.name %>
   <br>
 <% end %>

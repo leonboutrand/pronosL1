@@ -18,7 +18,8 @@
   </div>
 
   <div id="comments-box" class="col-xs-12 col-md-4">
-    <div id="comments-list" style="overflow:scroll; height:200px;">
+    <span id="comments-number"><%= @article.comments.count %> commentaires</span>
+    <div id="comments-list" style="overflow:auto; height:200px;">
       <%= render 'comments_list', comments: @article.comments %>
     </div>
 

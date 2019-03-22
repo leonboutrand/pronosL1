@@ -1,11 +1,11 @@
 <table>
   <tbody>
-    <% scores.each do |score| %>
+    <% games.each do |game| %>
       <tr>
-        <td><%= score[:home] %></td>
-        <td><%= score[:score_home] %></td>
-        <td><%= score[:score_away] %></td>
-        <td><%= score[:away] %></td>
+        <td><%= game.team_home.name %></td>
+        <td><%= game.score_home %></td>
+        <td><%= game.score_away %></td>
+        <td><%= game.team_away.name %></td>
       </tr>
     <% end %>
   </tbody>

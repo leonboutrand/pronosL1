@@ -2,9 +2,9 @@
 
 <%= form_tag('/live', remote: true) do %>
   <%= label_tag(:matchday, 'Journée :') %>
-  <%= select_tag(:matchday, options_for_select((1..36).to_a, Game.current_matchday), onchange: 'Rails.fire(this.form, "submit")') %>
+  <%= select_tag(:matchday, options_for_select((1..38).to_a, Game.current_matchday), onchange: 'Rails.fire(this.form, "submit")') %>
 <% end %>
 
 <div id="game-grid">
-  <%= render 'shared/games_live', scores: @scores %>
+  <%= render 'shared/games_live', games: @games %>
 </div>
