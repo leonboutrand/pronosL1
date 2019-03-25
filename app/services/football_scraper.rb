@@ -8,13 +8,11 @@ class FootballScraper
   end
 
   def process
-    games = Game.where(matchday: @matchday)
-    scores = scrap_scores # scrapping scores if we put true as 2nd argument
+    scores = scrap_scores # scrapping scores as [home, away, status]
     home = teams(scrap_home) # scrapping home teams
-    away = teams(scrap_away) # scrapping away teams
     scores.each_with_index do |score, i|
       game = Game.where(matchday: @matchday).find_by_team_home_id(home[i].id)
-      game.update(score_home: score[0], score_away: score[1])
+      game.update(score_home: score[0], score_away: score[1], status: score[2]) if game.status != 'finished'
     end
   end
 
@@ -46,14 +44,14 @@ class FootballScraper
     names.map { |name| Team.find_by_name(name) }
   end
 
-  def scrap_scores
+  def scrap_scores # TODO: retrieve information about live or not
     @doc.search('.stats a').map do |score|
       if score.text.strip != '' # if the game is already finished
-        score.text.strip.split(' - ').map(&:to_i)
+        score.text.strip.split(' - ').map(&:to_i) << 'finished'
       elsif score.attributes['href'].value.match?(/feuille/) # if the game is live (has 'feuille' on his url)
         scrap_inside(score.attributes['href'].value)
       else # if the game didn't started yet
-        ['', '']
+        ['', '', 'open']
       end
     end
   end
@@ -61,7 +59,7 @@ class FootballScraper
   def scrap_inside(path)
     url = "https://www.lfp.fr/#{path}"
     inside = Nokogiri::HTML(open(url).read)
-    inside.search('.buts').map { |x| x.text.strip.to_i }
+    inside.search('.buts').map { |x| x.text.strip.to_i } << 'live'
   end
 
   def scrap_home

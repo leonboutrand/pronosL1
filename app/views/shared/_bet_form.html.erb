@@ -1,0 +1,8 @@
+<%= simple_form_for bet, remote: true do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.hidden_field :game_id, value: game_id %>
+  <%= f.input :score_home, label:false %>
+  <%= f.input :score_away, label:false %>
+  <%= f.button :submit, value: 'Parier' %>
+<% end %>

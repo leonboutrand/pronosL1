@@ -1,0 +1,4 @@
+<%= form_tag(path, remote: true) do %>
+  <%= label_tag(:matchday, 'Journée :') %>
+  <%= select_tag(:matchday, options_for_select((1..38).to_a, Game.current_matchday), onchange: 'Rails.fire(this.form, "submit")') %>
+<% end %>

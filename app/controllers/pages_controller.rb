@@ -13,7 +13,9 @@ class PagesController < ApplicationController
   end
 
   def live_update
-    @games = Game.where(matchday: params[:matchday].to_i)
+    matchday = params[:matchday].to_i
+    FootballScraper.new(matchday).process if pending_games?(matchday) # in case there are reported games
+    @games = Game.where(matchday: matchday)
     render :live_update
   end
 
@@ -24,5 +26,11 @@ class PagesController < ApplicationController
   def pronos_update
     @games = Game.where(matchday: params[:matchday].to_i)
     render :pronos_update
+  end
+
+  private
+
+  def pending_games?(matchday)
+    matchday < Game.current_matchday ? Game.where(matchday: matchday).any? { |game| game.status != 'finished' } : false
   end
 end

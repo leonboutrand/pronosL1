@@ -7,10 +7,10 @@ module RankingCalculator
       points = update_points_home(team.games_as_team_home) + update_points_away(team.games_as_team_away)
       team.update(
         points: points,
-        scored_goals: balance[0],
-        conceded_goals: balance[1],
-        difference_goals: balance[0] - balance[1],
-        played_games: balance[2]
+        scored_goals: balance[:scored_goals],
+        conceded_goals: balance[:conceded_goals],
+        difference_goals: balance[:scored_goals] - balance[:conceded_goals],
+        played_games: balance[:played_games]
       )
     end
     puts "#{(Time.now - t)} seconds"
@@ -45,20 +45,20 @@ module RankingCalculator
   end
 
   def self.update_goals(games_home, games_away)
-    balance = [0, 0, 0]
+    balance = { scored_goals: 0, conceded_goals: 0, played_games: 0 } # [0, 0, 0]
     games_home.each do |game|
       next unless game.score_home
 
-      balance[0] += game.score_home
-      balance[1] += game.score_away
-      balance[2] += 1
+      balance[:scored_goals] += game.score_home
+      balance[:conceded_goals] += game.score_away
+      balance[:played_games] += 1
     end
     games_away.each do |game|
       next unless game.score_home
 
-      balance[0] += game.score_away
-      balance[1] += game.score_home
-      balance[2] += 1
+      balance[:scored_goals] += game.score_away
+      balance[:conceded_goals] += game.score_home
+      balance[:played_games] += 1
     end
     balance
   end

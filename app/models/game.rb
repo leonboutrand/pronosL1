@@ -5,12 +5,11 @@ class Game < ApplicationRecord
 
   # validates :status, inclusion: { in: %w[pending open live finished] }
 
-  def bettable?
-    status == 'open'
-    # start_time < DateTime.now
+  def self.current_matchday
+    29
   end
 
-  def self.current_matchday
-    25
+  def self.opened_matchdays
+    Game.distinct.where(status: 'open').pluck(:matchday).sort
   end
 end
