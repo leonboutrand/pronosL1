@@ -1,0 +1,8 @@
+function updateGameBetted() {
+  const gameBetted = document.querySelector('#game-bet-<%= @game.id %>');
+  if (gameBetted) {
+    gameBetted.innerHTML = "<%= j render 'shared/game_bet', game: @game %>"
+  }
+}
+
+updateGameBetted();

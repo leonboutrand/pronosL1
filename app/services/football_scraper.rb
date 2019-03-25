@@ -13,6 +13,7 @@ class FootballScraper
     scores.each_with_index do |score, i|
       game = Game.where(matchday: @matchday).find_by_team_home_id(home[i].id)
       game.update(score_home: score[0], score_away: score[1], status: score[2]) if game.status != 'finished'
+      ScoresUpdater.new(game).process
     end
   end
 
@@ -30,7 +31,6 @@ class FootballScraper
         Game.create!(game)
         puts "Journée #{game[:matchday]}: #{game[:team_home].name} (#{game[:score_home]}) - #{game[:team_away].name} (#{game[:score_away]})"
       end
-      puts "\nGames OK for matchday #{matchday}\n"
     end
   end
 

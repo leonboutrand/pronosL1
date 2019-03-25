@@ -1,0 +1,12 @@
+<%= game.team_home.name %>
+<%= game.score_home %>
+<% if game.status != 'open' %>
+  <%= "#{game.score_home} - #{game.score_away}" %>
+<% elsif game.bets.none? { |bet| bet.user == current_user } %>
+  <%= render 'shared/bet_form', bet: Bet.new, game_id: game.id %>
+<% else %>
+  <% bet = game.bets.find { |bet| bet.user == current_user } %>
+  <%= "#{bet.score_home} - #{bet.score_away}" %>
+<% end %>
+<%= game.score_away %>
+<%= game.team_away.name %>
