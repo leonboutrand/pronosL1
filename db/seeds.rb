@@ -12,7 +12,7 @@ def initialize_users
   User.destroy_all
   puts "\n-- Done\n#{User.count} users in database --\n"
   puts "Creating users..."
-  %w[alex arthur tristan nono jordon].each do |user|
+  %w[alex arthur tristan jordon baptiste xav boulinho alexic leon].each do |user|
     User.create! (
       {
       pseudo: user,

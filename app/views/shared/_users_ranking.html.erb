@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <td colspan="3">Classement</td>
+      <td colspan="2">Classement</td>
       <td colspan="2">Matchs</td>
       <td>10</td>
       <td>7</td>
@@ -21,26 +21,26 @@
   </thead>
 
   <tbody>
-    <% @users.each_with_index do |user, i| %>
+    <% first = users.first.game_points %>
+    <% users.each_with_index do |user, i| %>
       <tr>
         <td><%= i + 1 %>.</td>
         <td><%= user.pseudo %></td>
-        <td>+1</td>
-        <td>580</td>
-        <td>-12</td>
-        <td>10</td>
-        <td>7</td>
-        <td>6</td>
-        <td>5</td>
-        <td>1</td>
-        <td>0</td>
-        <td>500</td>
-        <td>5</td>
-        <td>5</td>
-        <td>5</td>
-        <td>5</td>
-        <td>1080</td>
-        <td>~</td>
+        <td><%= user.game_points %></td>
+        <td><%= user.game_points - first %></td>
+        <td><%= user.bets.select { |bet| bet.points == 10 }.count %></td>
+        <td><%= user.bets.select { |bet| bet.points == 7 }.count %></td>
+        <td><%= user.bets.select { |bet| bet.points == 6 }.count %></td>
+        <td><%= user.bets.select { |bet| bet.points == 5 }.count %></td>
+        <td><%= user.bets.select { |bet| bet.points == 1 }.count %></td>
+        <td><%= user.bets.select { |bet| bet.points == 0 }.count %></td>
+        <td><%= user.ranking_points %></td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td><%= user.ranking_points + user.game_points %></td>
+        <td>-</td>
       </tr>
     <% end %>
   </tbody>

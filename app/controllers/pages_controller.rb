@@ -2,19 +2,26 @@ require 'open-uri'
 
 class PagesController < ApplicationController
   def home
-    @users = User.all
+    UsersRankingCalculator.call
     TeamsRankingCalculator.call
+    @users = User.all.order(game_points: :desc)
     @teams = Team.all.order(points: :desc, difference_goals: :desc)
   end
 
   def live
     FootballScraper.new.process
+    UsersRankingCalculator.call
+    @users = User.all.order(game_points: :desc)
     @games = Game.where(matchday: Game.current_matchday)
   end
 
   def live_update
     matchday = params[:matchday].to_i
-    FootballScraper.new(matchday).process if pending_games?(matchday) # in case there are reported games
+    if pending_games?(matchday)
+      FootballScraper.new(matchday).process
+      UsersRankingCalculator.call
+    end
+    @users = User.all.order(game_points: :desc)
     @games = Game.where(matchday: matchday)
     render :live_update
   end
