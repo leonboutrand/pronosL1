@@ -1,4 +1,4 @@
-module RankingCalculator
+module TeamsRankingCalculator
   def self.call
     t = Time.now
     Team.all.each do |team|

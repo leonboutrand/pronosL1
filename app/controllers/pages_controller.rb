@@ -3,7 +3,7 @@ require 'open-uri'
 class PagesController < ApplicationController
   def home
     @users = User.all
-    RankingCalculator.call
+    TeamsRankingCalculator.call
     @teams = Team.all.order(points: :desc, difference_goals: :desc)
   end
 
