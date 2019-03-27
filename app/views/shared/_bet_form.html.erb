@@ -4,5 +4,5 @@
   <%= f.hidden_field :game_id, value: game_id %>
   <%= f.input :score_home, label:false %>
   <%= f.input :score_away, label:false %>
-  <%= f.button :submit, value: 'Parier', data: { disable_with: 'NTM' } %>
+  <%= f.button :submit, value: 'Parier', class: 'bet-submit', data: { disable_with: 'NTM' } %>
 <% end %>
