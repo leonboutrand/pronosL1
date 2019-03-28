@@ -1,0 +1,32 @@
+<h2>Journée <%= matchday %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <td colspan="2">Classement</td>
+      <td>Pts</td>
+      <td>10</td>
+      <td>7</td>
+      <td>6</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% ranking.each_with_index do |row, i| %>
+      <tr>
+        <td><%= i + 1 %>.</td>
+        <td><%= row[:user].pseudo %></td>
+        <td><%= row[:points] %></td>
+        <td><%= row[:nb10] %></td>
+        <td><%= row[:nb7] %></td>
+        <td><%= row[:nb6] %></td>
+        <td><%= row[:nb5] %></td>
+        <td><%= row[:nb1] %></td>
+        <td><%= row[:nb0] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

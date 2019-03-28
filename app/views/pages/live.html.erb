@@ -9,3 +9,7 @@
 <div id="live-ranking">
   <%= render 'shared/users_ranking', users: @users %>
 </div>
+
+<div id="matchday-ranking">
+  <%= render 'shared/matchday_ranking', ranking: @matchday_ranking, matchday: Game.current_matchday %>
+</div>

@@ -13,16 +13,18 @@ class PagesController < ApplicationController
     UsersRankingCalculator.call
     @users = User.all.order(game_points: :desc)
     @games = Game.where(matchday: Game.current_matchday)
+    @matchday_ranking = MatchdayRankingCalculator.new.process
   end
 
   def live_update
-    matchday = params[:matchday].to_i
-    if pending_games?(matchday)
-      FootballScraper.new(matchday).process
+    @matchday = params[:matchday].to_i
+    if pending_games?(@matchday)
+      FootballScraper.new(@matchday).process
       UsersRankingCalculator.call
     end
     @users = User.all.order(game_points: :desc)
-    @games = Game.where(matchday: matchday)
+    @games = Game.where(matchday: @matchday)
+    @matchday_ranking = MatchdayRankingCalculator.new(@matchday).process
     render :live_update
   end
 
