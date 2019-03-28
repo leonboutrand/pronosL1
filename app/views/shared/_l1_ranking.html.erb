@@ -24,7 +24,7 @@
         <td><%= team.scored_goals %></td>
         <td><%= team.conceded_goals %></td>
         <td><%= team.difference_goals %></td>
-        <td>~5</td>
+        <td><%= render 'shared/last_five_games', team: team %></td>
       </tr>
     <% end %>
   </tbody>

@@ -3,6 +3,9 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <%= f.hidden_field :game_id, value: game_id %>
   <%= f.input :score_home, label:false %>
+
+  <span> - </span>
+
   <%= f.input :score_away, label:false %>
   <%= f.button :submit, value: 'Parier', class: 'bet-submit', data: { disable_with: 'NTM' } %>
 <% end %>

@@ -1,0 +1,29 @@
+.game-bet {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  height: 75px;
+  div {
+    text-align: center;
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit-bets {
+  border-radius: 8px;
+  background: linear-gradient(to right, blue, white 45%, white 55%, red);
+  border: 2px solid white;
+  padding: 10px 20px;
+  &:hover {
+    transform: scale(1.02);
+    opacity: 0.8;
+  }
+}
+
+.game-info {
+  flex-direction: column;
+}

@@ -1,10 +1,28 @@
 <% bet = game.bets.find { |bet| bet.user == current_user } %>
-<%= game.team_home.name %>
 
-<%= game.status != 'open' ? "#{game.score_home} - #{game.score_away}" : '-' %>
+<div class="team-label flex-center">
+  <%= game.team_home.name %>
+</div>
 
-<%= render 'shared/bet_form', bet: Bet.new, game_id: game.id unless (bet || game.status != 'open') %>
+<div class="game-info flex-center">
+  <div class="game-main-info">
+    <%= game.score_home %>
 
-<%= game.team_away.name %>
+    <% unless bet || game.status != 'open' %>
+      <%= render 'shared/bet_form', bet: Bet.new, game_id: game.id %>
+    <% else %>
+      <%= ' - ' %>
+    <% end %>
 
-<%= "(#{bet.score_home} - #{bet.score_away})" if bet %>
+    <%= game.score_away %>
+  </div>
+
+  <div class="game-bet-info">
+    <%= "(#{bet.score_home} - #{bet.score_away})" if bet %>
+  </div>
+</div>
+
+
+<div class="team-label flex-center">
+  <%= game.team_away.name %>
+</div>

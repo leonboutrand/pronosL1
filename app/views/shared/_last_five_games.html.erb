@@ -1,0 +1,30 @@
+<% if Game.current_matchday <= 6 %>
+  <% range = (1..Game.current_matchday - 1) %>
+<% else %>
+  <% range = (Game.current_matchday - 5..Game.current_matchday - 1) %>
+<% end %>
+
+<% range.each do |matchday| %>
+
+  <% if game = Game.where(matchday: matchday).find_by_team_home_id(team.id) %>
+    <% if !(game.score_home && game.score_away) %>
+      R
+    <% elsif game.score_home > game.score_away %>
+      +
+    <% elsif game.score_home == game.score_away %>
+      *
+    <% elsif game.score_home < game.score_away %>
+      -
+    <% end %>
+  <% elsif game = Game.where(matchday: matchday).find_by_team_away_id(team.id) %>
+    <% if !(game.score_home && game.score_away) %>
+      R
+    <% elsif game.score_home > game.score_away %>
+      -
+    <% elsif game.score_home == game.score_away %>
+      *
+    <% elsif game.score_home < game.score_away %>
+      +
+    <% end %>
+  <% end %>
+<% end %>

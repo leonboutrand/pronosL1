@@ -1,7 +1,9 @@
 <% games.each do |game| %>
-  <div id="game-bet-<%= game.id %>">
+  <div id="game-bet-<%= game.id %>" class="game-bet">
     <%= render 'shared/game_bet', game: game %>
   </div>
 <% end %>
 
-<button id="submit-bets">Parier!</button>
+<div class="flex-center">
+  <button id="submit-bets">Parier!</button>
+</div>
