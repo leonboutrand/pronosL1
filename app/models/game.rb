@@ -6,7 +6,7 @@ class Game < ApplicationRecord
   # validates :status, inclusion: { in: %w[pending open live finished] }
 
   def self.current_matchday
-    30
+    32
   end
 
   def self.opened_matchdays

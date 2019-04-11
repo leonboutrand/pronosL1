@@ -1,13 +1,17 @@
-<table>
-  <tbody>
-    <% games.each do |game| %>
-      <tr>
-        <td><%= game.team_home.name %></td>
-        <td><%= game.score_home %></td>
-        <td><%= game.score_away %></td>
-        <td><%= game.team_away.name %></td>
-        <td><%= game.status %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% games.each do |game| %>
+  <div id="live-game-<%= game.id %>">
+    <a role="button" data-toggle="collapse" href="#collapse-game-<%= game.id %>" aria-expanded="false" aria-controls="collapseExample">
+      <span><%= game.team_home.name %></span>
+      <span><%= game.score_home %></span> -
+      <span><%= game.score_away %></span>
+      <span><%= game.team_away.name %></span>
+    </a>
+    <div class="collapse" id="collapse-game-<%= game.id %>">
+      <div class="well">
+        <% game.bets.each do |bet| %>
+          <div><%= bet.user.pseudo %> : <%= game.team_home.name %> <%= bet.score_home %> - <%= bet.score_away %> <%= game.team_away.name %> // <%= bet.points || '-' %>pts</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
