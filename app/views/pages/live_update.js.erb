@@ -4,11 +4,8 @@ function updateGames() {
   const matchdayRanking = document.querySelector('#matchday-ranking');
   if (gameGrid && liveRanking) {
     gameGrid.innerHTML = "<%= j render 'shared/games_live', games: @games %>"
-    console.log(gameGrid);
     liveRanking.innerHTML = "<%= j render 'shared/users_ranking', users: @users %>"
-    console.log(liveRanking);
     matchdayRanking.innerHTML = "<%= j render 'shared/matchday_ranking', ranking: @matchday_ranking, matchday: @matchday %>"
-    console.log(matchdayRanking);
   }
 }
 
