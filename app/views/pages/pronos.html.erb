@@ -1,7 +1,9 @@
 <h1>Pose tes pronos</h1>
 
-<%= render 'shared/select_matchday', path: '/pronos' %>
+<div class="container">
+  <%= render 'shared/select_matchday', path: '/pronos' %>
 
-<div id="bets-grid">
-  <%= render 'shared/games_bets', games: @games %>
+  <div id="bets-grid">
+    <%= render 'shared/games_bets', games: @games %>
+  </div>
 </div>

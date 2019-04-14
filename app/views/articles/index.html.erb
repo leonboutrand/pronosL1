@@ -1,11 +1,13 @@
 <h1>La Gazzetta dello Porco</h1>
-<h3>Toute l'actu footix des gros porcs</h3>
 
-<%= link_to 'Ecrire un article', new_article_path, class: 'btn btn-primary' %>
+<div class="container">
+  <h3>Toute l'actu footix des gros porcs</h3>
 
-<% @articles.each do |article| %>
-  <%= link_to article_path(article) do %>
+  <%= link_to 'Ecrire un article', new_article_path, class: 'btn btn-primary' %>
+
+  <% @articles.each do |article| %>
     <div class="article-card">
+      <%= link_to '', article_path(article), class: "article-link" %>
       <h4><%= article.title %></h4>
       <%= image_tag article.image, alt: "alttext" %>
       <p style="white-space: pre-line; overflow:hidden; max-height:50px;"><%= article.content %></p>
@@ -19,4 +21,4 @@
       <% end %>
     </div>
   <% end %>
-<% end %>
+</div>

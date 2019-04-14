@@ -1,8 +1,8 @@
 <%= simple_form_for @article do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :image %>
-  <%= f.button :submit %>
+  <%= f.input :title, label: "Titre" %>
+  <%= f.input :content, label: "Chef d'oeuvre" %>
+  <%= f.input :image, label: "URL d'image" %>
+  <%= f.button :submit, value: "Publier" %>
 <% end %>

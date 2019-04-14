@@ -1,15 +1,17 @@
 <h1>Le live do Brasil</h1>
 
-<%= render 'shared/select_matchday', path: '/live' %>
+<div class="container">
+  <%= render 'shared/select_matchday', path: '/live' %>
 
-<div id="game-grid">
-  <%= render 'shared/games_live', games: @games %>
-</div>
+  <div id="game-grid">
+    <%= render 'shared/games_live', games: @games %>
+  </div>
 
-<div id="matchday-ranking">
-  <%= render 'shared/matchday_ranking', ranking: @matchday_ranking, matchday: Game.current_matchday %>
-</div>
+  <div id="matchday-ranking">
+    <%= render 'shared/matchday_ranking', ranking: @matchday_ranking, matchday: Game.current_matchday %>
+  </div>
 
-<div id="live-ranking">
-  <%= render 'shared/users_ranking', users: @users %>
+  <div id="live-ranking">
+    <%= render 'shared/users_ranking', users: @users %>
+  </div>
 </div>

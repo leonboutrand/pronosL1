@@ -1,1 +1,19 @@
 // Specific CSS for your home-page
+body {
+  background-image: linear-gradient(#CFC8,#CFC8), url("football_wallpaper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  background: linear-gradient(to right, #222D, #2225);
+  color: gold;
+  text-align: center;
+  padding: 5px 0;
+}
+
+h2 {
+  font-weight: bolder;
+  color: orangered;
+  border-bottom: 2px solid;
+}

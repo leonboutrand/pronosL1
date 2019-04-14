@@ -1,5 +1,6 @@
 <h1>Corriger <%= link_to @article.title, article_path(@article) %></h1>
 
-<%= render 'form' %>
-
-<%= link_to 'En fait nan', articles_path  %>
+<div class="container">
+  <%= render 'form' %>
+  <%= link_to 'En fait nan', articles_path  %>
+</div>
