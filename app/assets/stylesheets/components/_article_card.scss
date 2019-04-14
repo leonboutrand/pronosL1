@@ -9,6 +9,11 @@
   h4 {
     text-align: center;
   }
+  .pre-content {
+    white-space: pre-line;
+    overflow:hidden;
+    max-height:50px;
+  }
 }
 
 .article-link {

@@ -1,6 +1,6 @@
 <% bet = game.bets.find { |bet| bet.user == current_user } %>
 
-<div class="team-label flex-center">
+<div class="team-label team-home flex-center">
   <%= game.team_home.name %>
 </div>
 
@@ -23,6 +23,6 @@
 </div>
 
 
-<div class="team-label flex-center">
+<div class="team-label team-away flex-center">
   <%= game.team_away.name %>
 </div>

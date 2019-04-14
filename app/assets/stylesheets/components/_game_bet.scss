@@ -1,10 +1,8 @@
 .game-bet {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 1fr 1.2fr 1fr;
   height: 75px;
-  div {
-    text-align: center;
-  }
+
 }
 
 .flex-center {
@@ -26,4 +24,14 @@
 
 .game-info {
   flex-direction: column;
+}
+
+.team-home {
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.team-away {
+  text-align: left;
+  justify-content: flex-start;
 }

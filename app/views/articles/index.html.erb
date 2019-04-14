@@ -7,10 +7,10 @@
 
   <% @articles.each do |article| %>
     <div class="article-card">
-      <%= link_to '', article_path(article), class: "article-link" %>
+      <%#= link_to '', article_path(article), class: "article-link" %>
       <h4><%= article.title %></h4>
       <%= image_tag article.image, alt: "alttext" %>
-      <p style="white-space: pre-line; overflow:hidden; max-height:50px;"><%= article.content %></p>
+      <div class="pre-content"><%= article.content %></div>
       <% if article.user == current_user %>
         <%= link_to edit_article_path(article) do %>
           <i class="fas fa-pencil-alt"></i>

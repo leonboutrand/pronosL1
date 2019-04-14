@@ -1,10 +1,15 @@
 <% games.each do |game| %>
   <div id="live-game-<%= game.id %>">
-    <a role="button" data-toggle="collapse" href="#collapse-game-<%= game.id %>" aria-expanded="false" aria-controls="collapseExample">
-      <span><%= game.team_home.name %></span>
-      <span><%= game.score_home %></span> -
-      <span><%= game.score_away %></span>
-      <span><%= game.team_away.name %></span>
+    <a class="game-bet" role="button" data-toggle="collapse" href="#collapse-game-<%= game.id %>" aria-expanded="false" aria-controls="collapseExample">
+      <div class="flex-center team-home">
+        <span><%= game.team_home.name %></span>
+      </div>
+      <div class="flex-center">
+        <span><%= game.score_home %> - <%= game.score_away %></span>
+      </div>
+      <div class="flex-center team-away">
+        <span><%= game.team_away.name %></span>
+      </div>
     </a>
     <div class="collapse" id="collapse-game-<%= game.id %>">
       <div class="well">

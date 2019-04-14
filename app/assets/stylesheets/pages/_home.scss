@@ -17,3 +17,12 @@ h2 {
   color: orangered;
   border-bottom: 2px solid;
 }
+
+a {
+  color: darkgreen;
+  &:hover {
+    color: darkgreen;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}

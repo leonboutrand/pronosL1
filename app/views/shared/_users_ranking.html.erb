@@ -11,12 +11,12 @@
       <td>5</td>
       <td>1</td>
       <td>0</td>
-      <td>Class.</td>
+<!--       <td>Class.</td>
       <td>30</td>
       <td>12</td>
       <td>6</td>
       <td>2</td>
-      <td colspan="2">Total</td>
+      <td colspan="2">Total</td> -->
     </tr>
   </thead>
 
@@ -34,13 +34,13 @@
         <td><%= user.bets.select { |bet| bet.points == 5 }.count %></td>
         <td><%= user.bets.select { |bet| bet.points == 1 }.count %></td>
         <td><%= user.bets.select { |bet| bet.points == 0 }.count %></td>
-        <td><%= user.ranking_points %></td>
+<!--         <td><%= user.ranking_points %></td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
         <td>-</td>
         <td><%= user.ranking_points + user.game_points %></td>
-        <td>-</td>
+        <td>-</td> -->
       </tr>
     <% end %>
   </tbody>
