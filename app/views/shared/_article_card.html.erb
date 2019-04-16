@@ -1,0 +1,36 @@
+<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <div class="front">
+      <!-- front content -->
+      <div class="article-card">
+        <div class="img-card-container">
+          <%#= link_to '', article_path(article), class: "article-link" %>
+          <%= image_tag article.image, alt: "alttext" %>
+        </div>
+        <h4><%= article.title %></h4>
+        <%= article.comments.count %> commentaires
+        <% if article.user == current_user %>
+          •
+          <%= link_to edit_article_path(article) do %>
+            <i class="fas fa-pencil-alt"></i>
+          <% end %>
+          <%= link_to article_path(article), method: :delete, data: { confirm: "Es-tu sûr de ton coup? :'(" } do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="back">
+      <!-- back content -->
+      <div class="article-card">
+        <%= link_to '', article_path(article), class: "article-link" %>
+        <div class="pre-content">
+          <h4><%= article.title %></h4>
+          <strong>Par <%= article.user.pseudo %> <br> </strong>
+          <%= article.content %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

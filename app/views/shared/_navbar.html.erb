@@ -10,15 +10,15 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "📜 Gazzetta dello Porco", articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "📜 La Gazette", articles_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "📈 Stats inutiles", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "⚽ Pose tes scores et tes couilles", pronos_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "⚽ Pose tes scores", pronos_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "⚡ Live", live_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/leonboutrand", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "footix.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -49,9 +49,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><%= link_to '📜 Gazzetta', articles_path %></li>
-        <li><%= link_to '📈 Bullshit', "#" %></li>
-        <li><%= link_to '⚽ Scores+couilles', pronos_path %></li>
+        <li><%= link_to '📜 Gazette', articles_path %></li>
+        <li><%= link_to '📈 Stats', "#" %></li>
+        <li><%= link_to '⚽ Scores', pronos_path %></li>
         <li><%= link_to '⚡ Live', live_path %></li>
       </ul>
     </div>

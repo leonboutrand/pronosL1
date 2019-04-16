@@ -11,6 +11,7 @@
 </h1>
 
 <div class="container">
+  <%= link_to 'Retour aux articles', articles_path %>
   <div id="article-container" class="row">
     <div id="article-content" class="col-xs-12 col-md-8">
       <p><em>Rédigé par <%= @article.user.pseudo %></em></p>
@@ -30,3 +31,24 @@
     </div>
   </div>
 </div>
+
+<% content_for :after_js do %>
+  <script>
+    App['article_<%= @article.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ArticlesChannel', article_id: <%= @article.id %> },
+      {
+        received: (data) => {
+          console.log(data);
+          document.querySelector('#comments-number').innerText = data.comments_number;
+          document.querySelector('#comments-list').innerHTML = data.comments_list;
+          document.querySelector('#comments-list').scrollTop = document.querySelector('#comments-list').scrollHeight;
+          // if (data.current_user_id !== <%= current_user.id %>) {
+          //   const messagesContainer = document.querySelector('.messages');
+          //   messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+          //   scrollLastMessageIntoView();
+          // }
+        }
+      }
+    )
+  </script>
+<% end %>

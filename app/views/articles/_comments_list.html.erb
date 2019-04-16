@@ -1,5 +1,5 @@
 <ul>
   <% comments.each do |comment| %>
-    <li id="comment-<%= comment.id %>" style="white-space: pre-line"><strong><%= comment.user.pseudo %></strong>: <%= comment.content %></li>
+    <%= render 'comments/comment', comment: comment %>
   <% end %>
 </ul>

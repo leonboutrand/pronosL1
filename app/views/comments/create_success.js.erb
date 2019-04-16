@@ -2,7 +2,7 @@ function updateCommentBox() {
   const commentsList = document.querySelector('#comments-list');
   const commentsNumber = document.querySelector('#comments-number');
   if (commentsList && commentsNumber) {
-    commentsNumber.innerHTML = "<span id='comments-number'><%= @comment.article.comments.count %> commentaires</span>"
+    commentsNumber.innerText = "<%= @comment.article.comments.count %> commentaires"
     commentsList.innerHTML = "<%= j render 'articles/comments_list', comments: @comment.article.comments %>"
     commentsList.scrollTop = commentsList.scrollHeight;
     document.querySelector('#comment-form').innerHTML = "<%= j render 'articles/comment_form', article: @comment.article, comment: Comment.new %>";
