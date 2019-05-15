@@ -20,6 +20,7 @@
 <div class="article-card">
   <div class="main-card-display" style="background-image: linear-gradient(to right, #00F8, #FFF8 45%, #FFF8 55%, #F008), url('<%= article.image %>')">
     <h4><%= article.title %></h4>
+    <%= link_to 'Lire', article_path(article) %>
   </div>
   <div class="details">
     <div class="pre-content">
